@@ -39,8 +39,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### Tools I used 
+- `react-query` to make api requests. It handles caching, background updates and stale data out of the box with zero-configuration.
+- `styled-components` to add styles. Easy way to handle css in javascript
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### What to improve
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+There are a lot of things can be improved. For example: more tests, variables for colors, separate component file for spinner (somewhere in component library). If I continue improving everything I notice - I'll never finish with this task

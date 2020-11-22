@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { QueryCache, ReactQueryCacheProvider } from 'react-query';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {Switch} from 'react-router';
+import styled from 'styled-components';
+import GlobalMenu from './components/GlobalMenu/GlobalMenu';
+import PreviewPage from './views/PreviewPage';
+import StartPage from './views/StartPage';
 
-function App() {
+const PageWrapper = styled.div`
+  padding: 40px;
+`;
+
+const queryCache = new QueryCache();
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router >
+      <ReactQueryCacheProvider queryCache={queryCache}>
+        <GlobalMenu/>
+        <PageWrapper data-testid="wrapper">
+          <Switch>
+            <Route exact path="/" component={StartPage} />
+            <Route path="/:id" component={PreviewPage} />
+          </Switch>
+        </PageWrapper>
+      </ReactQueryCacheProvider>
+    </Router>
   );
 }
-
-export default App;
